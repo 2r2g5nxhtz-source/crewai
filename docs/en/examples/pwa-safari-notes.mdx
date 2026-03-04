@@ -1,0 +1,48 @@
+---
+title: Safari PWA Integration Notes (Fork)
+description: Practical notes for running CrewAI-driven workflows in a Safari PWA context.
+icon: mobile-screen
+---
+
+This page documents fork-specific implementation notes for Safari PWA usage.
+
+## Goals
+
+- Keep a lightweight local workflow for experimentation.
+- Support iOS/Safari constraints without changing core CrewAI behavior.
+- Make browser-to-agent handoff deterministic and auditable.
+
+## Current Constraints in Safari PWA
+
+- Background execution is limited and can be suspended aggressively.
+- Long-running tasks should be delegated to a backend process.
+- Audio capture and permissions require explicit user gestures.
+- Storage may be evicted, so critical state should be persisted server-side.
+
+## Recommended Architecture
+
+1. Capture user input in PWA UI.
+2. Send a compact task payload to a backend API.
+3. Execute CrewAI logic on backend workers.
+4. Stream status updates back to the PWA client.
+5. Persist final artifacts and execution metadata.
+
+## Minimal Task Payload
+
+```json
+{
+  "request_id": "pwa-2026-03-04-001",
+  "source": "safari-pwa",
+  "goal": "Summarize today's project updates",
+  "context": {
+    "timezone": "Asia/Ashgabat",
+    "platform": "iOS"
+  }
+}
+```
+
+## Next Increment for This Fork
+
+- Add an example endpoint contract for PWA task submission.
+- Add retry policy notes for intermittent mobile connectivity.
+- Add a small telemetry schema for request lifecycle tracking.

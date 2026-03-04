@@ -1,0 +1,44 @@
+---
+title: Voice Command to Agent Flow (Fork)
+description: Experimental flow notes for converting voice input into CrewAI tasks.
+icon: microchip-ai
+---
+
+This page tracks the experimental voice pipeline for this fork.
+
+## Flow Overview
+
+1. User triggers microphone capture in UI.
+2. Client records short audio chunk.
+3. Speech-to-text service returns transcript.
+4. Parser extracts intent, entities, and priority.
+5. Backend maps parsed command to a CrewAI task payload.
+6. Crew runs and returns status/results to UI.
+
+## Parsing Contract (Draft)
+
+```json
+{
+  "transcript": "Create a task to summarize unread support tickets",
+  "intent": "create_task",
+  "entities": {
+    "task_type": "summary",
+    "target": "support_tickets",
+    "scope": "unread"
+  },
+  "confidence": 0.92
+}
+```
+
+## Safety Rules
+
+- Reject low-confidence transcripts below a threshold.
+- Confirm destructive actions with a second user prompt.
+- Attach raw transcript to logs for audit/debugging.
+- Enforce per-user rate limits on voice-triggered tasks.
+
+## Next Increment for This Fork
+
+- Add a deterministic intent-to-task mapping table.
+- Add fallback prompts when transcript confidence is low.
+- Add an integration example with `agent-second-brain`.

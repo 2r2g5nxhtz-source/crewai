@@ -1,3 +1,13 @@
+## crewAI (Personal Fork)
+
+> This is a fork of [crewAI](https://github.com/crewAIInc/crewAI) with personal enhancements for AI agent development in PWA/iOS environments.
+
+- Fork owner: [2r2g5nxhtz-source](https://github.com/2r2g5nxhtz-source)
+- Upstream: [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI)
+- Fork-specific notes: [`CHANGES.md`](CHANGES.md)
+
+---
+
 <p align="center">
   <a href="https://github.com/crewAIInc/crewAI">
     <img src="docs/images/crewai_logo.png" width="600px" alt="Open source Multi-AI Agent orchestration framework">
