@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Agent Second Brain PWA</title>
+    <meta name="description" content="Safari PWA starter with voice to CrewAI flow" />
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <meta name="theme-color" content="#0a0f1f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="SecondBrain" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Safari PWA + CrewAI</p>
+        <h1>Agent Second Brain</h1>
+        <p class="subtitle">
+          Voice command -> offline-safe queue -> backend agent endpoint.
+        </p>
+      </header>
+
+      <section class="card">
+        <label for="command-input">Command</label>
+        <textarea
+          id="command-input"
+          rows="3"
+          placeholder="Summarize unread support tickets and create action items."
+        ></textarea>
+
+        <div class="actions">
+          <button id="send-btn" class="btn btn-primary">Send Command</button>
+          <button id="voice-btn" class="btn btn-voice" type="button" aria-label="Start voice input">
+            <span class="dot"></span>
+            Voice
+          </button>
+        </div>
+
+        <div class="meta">
+          <p id="mode-pill" class="pill">Browser Mode</p>
+          <p id="status-line" class="status">Ready.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="row">
+          <h2>Queue</h2>
+          <button id="flush-btn" class="btn btn-ghost" type="button">Flush Queue</button>
+        </div>
+        <p id="queue-size" class="status">Queued items: 0</p>
+      </section>
+
+      <section class="card">
+        <h2>Response</h2>
+        <pre id="response-box" class="response">No response yet.</pre>
+      </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

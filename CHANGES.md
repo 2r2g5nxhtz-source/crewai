@@ -21,3 +21,4 @@ Last sync: March 4, 2026
 ## Recent Updates
 - March 4, 2026: Added Safari PWA integration notes under `docs/en/examples/pwa-safari-notes.mdx`
 - March 4, 2026: Added voice command to agent flow notes under `docs/en/examples/voice-command-flow-notes.mdx`
+- March 5, 2026: Added turnkey starter at `examples/pwa-safari-voice-starter/` with Safari PWA, offline queue, voice input, and FastAPI backend endpoint
