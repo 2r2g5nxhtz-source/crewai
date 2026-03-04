@@ -41,6 +41,13 @@ This page documents fork-specific implementation notes for Safari PWA usage.
 }
 ```
 
+## Offline Retry Behavior
+
+- Queue submissions locally when network is unavailable.
+- Retry using exponential backoff (for example: 2s, 5s, 10s, 20s).
+- Keep retries idempotent by reusing the same `request_id`.
+- Stop retries after a capped attempt count and surface manual retry in UI.
+
 ## Next Increment for This Fork
 
 - Add an example endpoint contract for PWA task submission.
